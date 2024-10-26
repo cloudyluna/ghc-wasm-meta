@@ -19,7 +19,6 @@ host_specific() {
     WAZERO="wazero"
     NODEJS="nodejs"
     DENO="deno"
-    BUN="bun"
     CABAL="cabal"
     BINARYEN="binaryen"
     GHC="wasm32-wasi-ghc-$FLAVOUR"
@@ -33,7 +32,6 @@ host_specific() {
     WAZERO="wazero_aarch64_linux"
     NODEJS="nodejs_aarch64_linux"
     DENO="deno_aarch64_linux"
-    BUN="bun_aarch64_linux"
     CABAL="cabal_aarch64_linux"
     BINARYEN="binaryen_aarch64_linux"
     GHC="wasm32-wasi-ghc-gmp-aarch64-linux"
@@ -48,7 +46,6 @@ host_specific() {
     WAZERO="wazero_aarch64_darwin"
     NODEJS="nodejs_aarch64_darwin"
     DENO="deno_aarch64_darwin"
-    BUN="bun_aarch64_darwin"
     CABAL="cabal_aarch64_darwin"
     BINARYEN="binaryen_aarch64_darwin"
     GHC="wasm32-wasi-ghc-gmp-aarch64-darwin"
@@ -63,7 +60,6 @@ host_specific() {
     WAZERO="wazero_x86_64_darwin"
     NODEJS="nodejs_x86_64_darwin"
     DENO="deno_x86_64_darwin"
-    BUN="bun_x86_64_darwin"
     CABAL="cabal_x86_64_darwin"
     BINARYEN="binaryen_x86_64_darwin"
     GHC="wasm32-wasi-ghc-gmp-x86_64-darwin"
@@ -98,11 +94,6 @@ install -m755 deno "$PREFIX/deno/bin"
 
 mkdir -p "$PREFIX/nodejs"
 curl -f -L --retry 5 "$(jq -r ".\"$NODEJS\".url" "$REPO"/autogen.json)" | tar xJ -C "$PREFIX/nodejs" --no-same-owner --strip-components=1
-
-curl -f -L --retry 5 "$(jq -r ".\"$BUN\".url" "$REPO"/autogen.json)" -o bun.zip
-unzip bun.zip
-mkdir -p "$PREFIX/bun/bin"
-install -m755 bun-*/bun "$PREFIX/bun/bin"
 
 mkdir -p "$PREFIX/binaryen"
 curl -f -L --retry 5 "$(jq -r ".\"$BINARYEN\".url" "$REPO"/autogen.json)" | tar xz -C "$PREFIX/binaryen" --no-same-owner --strip-components=1
@@ -143,7 +134,6 @@ for p in \
   "$PREFIX/wasmtime/bin" \
   "$PREFIX/wabt/bin" \
   "$PREFIX/binaryen/bin" \
-  "$PREFIX/bun/bin" \
   "$PREFIX/nodejs/bin" \
   "$PREFIX/deno/bin" \
   "$PREFIX/wasi-sdk/bin" \

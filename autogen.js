@@ -103,22 +103,6 @@ const _nodejs_x86_64_darwin = fetchGitHubLatestRelease(
   "node-static",
   "darwin-x64.tar.xz"
 );
-const _bun = fetchGitHubLatestRelease("oven-sh", "bun", "linux-x64.zip");
-const _bun_aarch64_linux = fetchGitHubLatestRelease(
-  "oven-sh",
-  "bun",
-  "linux-aarch64.zip"
-);
-const _bun_aarch64_darwin = fetchGitHubLatestRelease(
-  "oven-sh",
-  "bun",
-  "darwin-aarch64.zip"
-);
-const _bun_x86_64_darwin = fetchGitHubLatestRelease(
-  "oven-sh",
-  "bun",
-  "darwin-x64.zip"
-);
 const _binaryen = fetchGitHubLatestRelease(
   "TerrorJack",
   "binaryen",
@@ -240,10 +224,6 @@ await Deno.writeTextFile(
       nodejs_aarch64_linux: await _nodejs_aarch64_linux,
       nodejs_aarch64_darwin: await _nodejs_aarch64_darwin,
       nodejs_x86_64_darwin: await _nodejs_x86_64_darwin,
-      bun: await _bun,
-      bun_aarch64_linux: await _bun_aarch64_linux,
-      bun_aarch64_darwin: await _bun_aarch64_darwin,
-      bun_x86_64_darwin: await _bun_x86_64_darwin,
       binaryen: await _binaryen,
       binaryen_aarch64_linux: await _binaryen_aarch64_linux,
       binaryen_aarch64_darwin: await _binaryen_aarch64_darwin,

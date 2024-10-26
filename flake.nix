@@ -37,7 +37,6 @@
                   deno
                   pkgs.cacert
                   nodejs
-                  bun
                   binaryen
                   wabt
                   wasmtime
@@ -67,7 +66,6 @@
           wasi-sdk = pkgs.callPackage ./pkgs/wasi-sdk.nix { };
           deno = pkgs.callPackage ./pkgs/deno.nix { };
           nodejs = pkgs.callPackage ./pkgs/nodejs.nix { };
-          bun = pkgs.callPackage ./pkgs/bun.nix { };
           binaryen = pkgs.callPackage ./pkgs/binaryen.nix { };
           wabt = pkgs.wabt;
           wasmtime = pkgs.callPackage ./pkgs/wasmtime.nix { };
@@ -98,7 +96,6 @@
               wasi-sdk
               deno
               nodejs
-              bun
               binaryen
               wabt
               wasmtime
